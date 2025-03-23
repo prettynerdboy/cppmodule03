@@ -1,23 +1,23 @@
-NAME	=	AaaaandOpen
-CC		=	c++
-FLAGS	=	-Wall -Wextra -Werror -std=c++98
-INCLUDE	=	-I includes
-RM		=	rm -rf
+NAME		=	AaaaandOpen
+CXX			=	c++
+CXXFLAGS	=	-Wall -Wextra -Werror -std=c++98
+INCLUDE		=	-I includes
+RM			=	rm -rf
 
-SRCS	=	$(wildcard *.cpp)
+SRCS		=	$(wildcard *.cpp)
 
-OBJ_D 	=	objs/
-OBJ		=	$(SRCS:.cpp=)
-OBJS	=	$(addprefix $(OBJ_D), $(addsuffix .o, $(OBJ)))
+OBJ_D 		=	objs/
+OBJ			=	$(SRCS:.cpp=)
+OBJS		=	$(addprefix $(OBJ_D), $(addsuffix .o, $(OBJ)))
 
 $(OBJ_D)%.o : $(SRC_D)%.cpp
 			@mkdir -p $(OBJ_D)
-			@($(CC) $(FLAGS) $(INCLUDE) -c $< -o $@)
+			@($(CXX) $(CXXFLAGS) $(INCLUDE) -c $< -o $@)
 
 all:		$(NAME)
 
 $(NAME):	$(OBJS)
-			@($(CC) $(FLAGS) $(INCLUDE) $(OBJS) -o $(NAME))
+			@($(CXX) $(CXXFLAGS) $(INCLUDE) $(OBJS) -o $(NAME))
 
 clean:
 			@($(RM) $(OBJ_D))

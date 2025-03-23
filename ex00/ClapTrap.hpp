@@ -15,9 +15,12 @@ class ClapTrap
     public:
         ClapTrap(std::string name);
         virtual ~ClapTrap();
+
+        //action
         void attack(const std::string &target);
         void takeDamage(unsigned int amount);
         void beRepaired(unsigned int amount);
+        //geter
         std::string getName()const;
         unsigned int getHitpoint()const;
 };
